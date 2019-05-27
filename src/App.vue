@@ -1,22 +1,32 @@
 <template>
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-    <h1>App hi: {{ hi }}</h1>
+    <h1>App: {{ hi }}</h1>
+    <div>test: {{ this.test }}</div>
+    <div>count {{ this.count }}</div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { mapState } from "vuex";
+import store from "./store";
 import HelloWorld from "./components/HelloWorld.vue";
 
-@Component({
+export default {
   components: {
     HelloWorld
-  }
-})
-export default class App extends Vue {
-  hi: string = "hi!";
-}
+  },
+  data() {
+    return {
+      hi: "hi!"
+    };
+  },
+  methods: {},
+  computed: {
+    ...mapState(["test", "count"])
+  },
+  mounted() {}
+};
 </script>
 
 <style>
