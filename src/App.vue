@@ -7,11 +7,12 @@
     <div>title: {{ this.title }}</div>
     <div>getTitle: {{ this.getTitle }}</div>
     <button v-on:click="AcCount">async count click</button>
+    <button v-on:click="increment">increment click</button>
   </div>
 </template>
 
 <script lang="ts">
-import { mapActions, mapState, mapGetters } from "vuex";
+import { mapActions, mapState, mapGetters, mapMutations } from "vuex";
 import store from "./store";
 import HelloWorld from "./components/HelloWorld.vue";
 
@@ -25,7 +26,8 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["AcCount"])
+    ...mapActions(["AcCount"]),
+    ...mapMutations(["increment"])
   },
   computed: {
     ...mapState(["test", "count", "title"]),

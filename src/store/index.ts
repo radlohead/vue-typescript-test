@@ -29,6 +29,9 @@ const store = new Vuex.Store({
         },
         asyncCount(state, response) {
             state.title = response.title
+        },
+        increment(state) {
+            state.count += 1
         }
     }
 })
